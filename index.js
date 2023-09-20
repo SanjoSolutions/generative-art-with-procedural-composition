@@ -1,8 +1,8 @@
 import { generate } from "./lib.js"
 
 await generate({
-  width: 10,
-  height: 10,
+  width: 20,
+  height: 20,
   distributions: [
     {
       probability: 0.3,

@@ -1,6 +1,12 @@
 {
   "type": "module",
+  "scripts": {
+    "build": "esbuild --bundle --outfile=lib.js --format=esm lib.ts",
+    "build:watch": "esbuild --bundle --outfile=lib.js --format=esm --watch lib.ts"
+  },
   "devDependencies": {
-    "prettier": "^3.0.3"
+    "esbuild": "^0.19.3",
+    "prettier": "^3.0.3",
+    "typescript": "^5.2.2"
   }
 }
