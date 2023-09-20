@@ -1,13 +1,4 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title></title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
-<body>
-  <script type="module">
-    await generate([
+await generate([
       {
         probability: 0.3,
         children: [
@@ -84,6 +75,3 @@
       }
       return null
     }
-  </script>
-</body>
-</html>
