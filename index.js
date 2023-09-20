@@ -1,77 +1,33 @@
-await generate([
-      {
-        probability: 0.3,
-        children: [
-          {
-            probability: 0.1,
-            row: 5,
-            column: 0
-          },
-          {
-            probability: 0.3,
-            row: 5,
-            column: 1
-          },
-          {
-            probability: 0.6,
-            row: 5,
-            column: 2
-          }
-        ]
-      },
-      {
-        probability: 0.7,
-        row: 3,
-        column: 1
-      }
-    ])
+import { generate } from "./lib.js"
 
-    async function generate(configuration) {
-      const image = await loadImage('grass.png')
-      const canvas = document.createElement('canvas')
-      canvas.width = 10 * 32
-      canvas.height = 10 * 32
-      document.body.appendChild(canvas)
-      const context = canvas.getContext('2d')
-      for (let x = 0; x < 10; x++) {
-        for (let y = 0; y < 10; y++) {
-          const { row, column } = selectTile(configuration)
-          context.drawImage(image, column * 32, row * 32, 32, 32, x * 32, y * 32, 32, 32)
-        }
-      }
-    }
-
-    function selectTile(configuration) {
-      let options = configuration
-      let tile
-      do {
-        tile = selectRandomWeighted(options)
-        options = tile?.children
-      } while (options)
-      return tile
-    }
-
-    function loadImage(url) {
-      return new Promise((resolve, onError) => {
-        const image = new Image()
-        image.src = url
-        image.onload = function () {
-          resolve(image)
-        }
-        image.onerror = function (error) {
-          onError(error)
-        }
-      })
-    }
-
-    function selectRandomWeighted(options) {
-      const random = Math.random()
-      let accumulatedProbability = 0
-      for (const option of options) {
-        accumulatedProbability += option.probability
-        if (random < accumulatedProbability) {
-          return option
-        }
-      }
-      return null
-    }
+await generate({
+  width: 10,
+  height: 10,
+  distributions: [
+    {
+      probability: 0.3,
+      children: [
+        {
+          probability: 0.1,
+          row: 5,
+          column: 0,
+        },
+        {
+          probability: 0.3,
+          row: 5,
+          column: 1,
+        },
+        {
+          probability: 0.6,
+          row: 5,
+          column: 2,
+        },
+      ],
+    },
+    {
+      probability: 0.7,
+      row: 3,
+      column: 1,
+    },
+  ],
+})
