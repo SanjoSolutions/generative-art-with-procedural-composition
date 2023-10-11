@@ -2,7 +2,8 @@
   "type": "module",
   "scripts": {
     "build": "esbuild --bundle --outfile=lib.js --format=esm lib.ts",
-    "build:watch": "esbuild --bundle --outfile=lib.js --format=esm --watch lib.ts"
+    "build:watch": "esbuild --bundle --outfile=lib.js --format=esm --watch lib.ts",
+    "build:serve": "esbuild --bundle --serve --outfile=lib.js --format=esm --watch lib.ts --servedir=."
   },
   "devDependencies": {
     "esbuild": "^0.19.3",

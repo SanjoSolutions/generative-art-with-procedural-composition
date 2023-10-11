@@ -1,11 +1,33 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title></title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
-<body>
-  <script type="module" src="index.js"></script>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      .links {
+        display: block;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        background-color: white;
+        padding: 0.5rem;
+      }
+
+      .links > * {
+        display: inline-block;
+        margin-right: 0.5rem;
+      }
+
+      .links > *:last-child {
+        margin-right: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="links">
+      <a class="credits" href="credits.html" target="_blank"> Credits </a>
+    </div>
+    <script type="module" src="index.js"></script>
+  </body>
 </html>
